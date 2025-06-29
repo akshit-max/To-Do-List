@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <style>
+        body {
+            background-image: url("https://static.vecteezy.com/system/resources/thumbnails/040/697/838/small_2x/ai-generated-majestic-mountain-range-reflects-tranquil-autumn-sunset-over-serene-pond-generated-by-ai-photo.jpg");
+            background-position: top;
+            background-repeat: no-repeat;
+            /* object-fit: contain; */
+            width: 100%;
+            height: 80vh;
+            z-index: -10;
+            /* background-size: cover; */
+            background-size: cover;
+
+        }
+
+        body::before {
+            position: sticky;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: -1;
+        }
+
+        .box {
+
+            height: 80vh;
+            width: 50%;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin: auto;
+            margin-top: 50px;
+            box-shadow: 10px 20px 30px gray;
+
+
+            /* background-color: #1E3A4C; */
+            background-color: #12232E;
+        }
+
+        .tasks {
+            background-color: #1E3A4C;
+            box-shadow: 10px 20px 30px gray;
+            width: 90%;
+            height: 60vh;
+            margin: auto;
+            margin-top: 40px;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid black;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .btnn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 10px;
+            box-shadow: 10px 0px 30px gray;
+            right: 20px;
+            
+            
+        }
+        
+        .text {
+            /* position: relative;
+            box-shadow: 10px 0px 30px gray;
+            top: 30px; */
+            margin-top: 20px;
+            height: 50vh;
+            width: 100%;
+            
+           
+        }
+        .text .todo{
+            display: flex;
+            /* flex-direction: column; */
+        }
+        
+        .todo {
+            width: 100%;
+            height: 40px;
+            background-color: #12232E;
+            margin: auto;
+            margin-top: 5px;
+            border: 2px solid black;
+
+        }
+        .todo{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            
+        }
+        .para{
+            margin-left: 10px;
+            font-size: x-large; font-weight: bolder;
+        }
+        .btnnn{
+            margin-right: 10px; background-color: #186267; width: 100px; font-weight: bolder; height: 30px; border-radius: 10px; font-size: larger;
+        }
+    </style>
+    <script>
+        function css(source) {
+            let paras=document.createElement("p")
+            paras.innerHTML=source.value
+            paras.className="para"
+
+            let btn=document.createElement("button")
+            btn.innerHTML="Delete"
+            btn.className="btnnn"
+            // btn.addEventListener("click",function(){
+            //     newdiv.remove();
+            // })
+            let parent=document.getElementById("text")
+            let newdiv=document.createElement("div")
+             newdiv.className="todo";
+            //  newdiv.textContent="hi";
+             parent.appendChild(newdiv)
+             newdiv.append(paras)
+             newdiv.append(btn)
+            btn.addEventListener("click",()=>{
+                newdiv.remove();
+            })
+
+
+            
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("btn").addEventListener("click", function () {
+                const source = document.getElementById("input")
+                // let inputt=document.getElementById("input").innerHTML
+                if(source.value.trim()===""){
+                    alert("Plz enter your task!!")
+                }
+
+                else{
+                // const target = document.getElementById("text").innerHTML = source.value
+                // const target = document.getElementById("text").innerHTML = 
+                css(source)
+                source.value=""
+                }
+
+            })
+        })
+    </script>
+</head>
+
+<body>
+
+    <div class="box">
+        <div class="input">
+
+            <input id="input"
+                style="background-color:  #1E3A4C;width: 90%; font-size:larger; font-weight: bolder; height: 40px ; margin: auto; margin-top: 20px; padding: 20px 40px; display: flex; justify-content: center; align-items: center;"
+                type="text" placeholder="ENTER YOUR TASKS HERE!!!">
+        </div>
+        <div class="tasks">
+            
+            <div>
+            
+                <button id="btn" class="btnn"
+                    style="background-color: #186267; width: 100px; font-weight: bolder; height: 40px; border-radius: 10px; font-size: larger;  ">ADD</button>
+            </div>
+
+            <div id="text" class="text">
+
+                <!-- <div class="todo"> -->
+                    <!-- <div style="margin-left: 10px;" class="maintxt"> -->
+                        <!-- <p id="para" class="para">fvvvv</p>
+                    
+                    <button id="btnnn" class="btnnn">
+                        Delete
+                    </button>
+                    
+                </div>
+                <div class="todo">
+                    <div style="margin-left: 10px;" class="maintxt">
+                        <p style="font-size: x-large; font-weight: bolder;">fvvvv</p>
+                    </div>
+                    <button style="margin-right: 10px; background-color: #186267; width: 100px; font-weight: bolder; height: 30px; border-radius: 10px; font-size: larger;">
+                        Delete
+                    </button> -->
+
+                </div>
+
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
